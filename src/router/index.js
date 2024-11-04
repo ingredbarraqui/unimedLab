@@ -1,3 +1,6 @@
+import BannerCriarEditar from "@/views/banner/BannerCriarEditar.vue";
+import BannerLista from "@/views/banner/BannerLista.vue";
+
 import HomePage from "@/views/HomePage.vue";
 import Index from "@/views/login/Index.vue";
 import Login from "@/views/login/Login.vue";
@@ -38,6 +41,37 @@ const router = createRouter({
           props: ({ params }) => ({
             ...params,
             ...{ usuarioId: Number.parseInt(params.usuarioId) || undefined },
+          }),
+        },
+      ],
+    },
+    {
+      path: '/banners',
+      component: HomePage,
+      children: [
+        {
+          path: '',
+          name: 'Banner',
+          component: BannerLista,
+        },
+        {
+          path: 'novoBanner',
+          name: 'Criar Banner',
+          component: BannerCriarEditar,
+          meta: {
+            título: 'Criar banner',
+          },
+        },
+        {
+          path: ':bannerId',
+          name: 'Editar Banner',
+          component: BannerCriarEditar,
+          meta: {
+            título: 'Editar Banner',
+          },
+          props: ({ params }) => ({
+            ...params,
+            ...{ bannerId: Number.parseInt(params.bannerId) || undefined },
           }),
         },
       ],

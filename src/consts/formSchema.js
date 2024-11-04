@@ -32,3 +32,10 @@ export const novoUsuario = object()
     .oneOf([ref('password')], 'As senhas devem coincidir')
     .required('Preencha sua senha'),
 });
+
+export const banner = object()
+.shape({
+  link: string()
+    .label('Link'),
+});
+
