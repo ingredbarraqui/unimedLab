@@ -1,6 +1,8 @@
 import HomePage from "@/views/HomePage.vue";
 import Index from "@/views/login/Index.vue";
 import Login from "@/views/login/Login.vue";
+import { createRouter, createWebHistory } from "vue-router";
+
 const router = createRouter({
   history: createWebHistory(),
   linkActiveClass: 'ativo',
