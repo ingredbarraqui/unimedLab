@@ -58,3 +58,14 @@ export const noticia = object()
     .required('obrigatório'),
 });
 
+
+export const video = object()
+.shape({
+  link: string()
+    .label('Url')
+    .required('obrigatório')
+    .matches(
+      /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/,
+      'A URL deve ser de um vídeo do YouTube'
+    ),
+});

@@ -9,6 +9,7 @@ import NoticiaLista from "@/views/noticia/NoticiaLista.vue";
 
 import UsuarioCriarEditar from "@/views/usuarios/UsuarioCriarEditar.vue";
 import UsuariosLista from "@/views/usuarios/usuariosLista.vue";
+import VideosCriarEditar from "@/views/video/VideosCriarEditar.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -24,6 +25,14 @@ const router = createRouter({
           path: '',
           name: 'Usuarios',
           component: UsuariosLista,
+        },
+        {
+          path: '/video',
+          name: 'video',
+          component: VideosCriarEditar,
+          meta: {
+            título: 'Vídeo',
+          },
         },
         {
           path: 'novoUsuario',
