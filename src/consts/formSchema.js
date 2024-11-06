@@ -58,6 +58,16 @@ export const noticia = object()
     .required('obrigatório'),
 });
 
+export const categoria = object()
+.shape({
+  category: string()
+    .label('categoria')
+    .required('obrigatório'),
+  description: string()
+    .label('Descrição de categoria')
+    .required('obrigatório'),
+});
+
 
 export const video = object()
 .shape({
