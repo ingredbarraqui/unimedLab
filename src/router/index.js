@@ -9,6 +9,8 @@ import NoticiaLista from "@/views/noticia/NoticiaLista.vue";
 
 import UsuarioCriarEditar from "@/views/usuarios/UsuarioCriarEditar.vue";
 import UsuariosLista from "@/views/usuarios/usuariosLista.vue";
+import VacinaCriarEditar from "@/views/vacina/VacinaCriarEditar.vue";
+import VacinaLista from "@/views/vacina/VacinaLista.vue";
 import VideosCriarEditar from "@/views/video/VideosCriarEditar.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
@@ -83,6 +85,37 @@ const router = createRouter({
           props: ({ params }) => ({
             ...params,
             ...{ bannerId: Number.parseInt(params.bannerId) || undefined },
+          }),
+        },
+      ],
+    },
+    {
+      path: '/vacinas',
+      component: HomePage,
+      children: [
+        {
+          path: '',
+          name: 'Vacina',
+          component: VacinaLista,
+        },
+        {
+          path: 'novaVacina',
+          name: 'Criar Vacina',
+          component: VacinaCriarEditar,
+          meta: {
+            título: 'Criar vacina',
+          },
+        },
+        {
+          path: ':vacinaId',
+          name: 'Editar Vacina',
+          component: VacinaCriarEditar,
+          meta: {
+            título: 'Editar vacina',
+          },
+          props: ({ params }) => ({
+            ...params,
+            ...{ vacinaId: Number.parseInt(params.vacinaId) || undefined },
           }),
         },
       ],

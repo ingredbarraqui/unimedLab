@@ -68,6 +68,27 @@ export const categoria = object()
     .required('obrigatório'),
 });
 
+export const vacina = object()
+.shape({
+  name: string()
+    .label('Nome')
+    .required('obrigatório'),
+  applicationMethod: string()
+    .label('Método de aplicação')
+    .required('obrigatório'),
+  cautions: string()
+    .label('Cuidados')
+    .nullable(),
+  description: string()
+    .label('Descrição'),
+  ageGroup: array()
+    .label('Faixa etária'),
+  preventAgainst: array()
+    .label('Prevenções'),
+  healthFacilityIds: array()
+    .label('Unidades de saúde'),
+});
+
 
 export const video = object()
 .shape({
