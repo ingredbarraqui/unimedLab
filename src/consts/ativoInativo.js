@@ -1,10 +1,10 @@
 export default {
   "Ativo": {
     nome: 'Ativo',
-    valor: 'Ativo',
+    valor: 'Active',
   },
   "Inativa": {
     nome: 'Inativo',
-    valor: 'Inativa',
+    valor: 'Inactive',
   },
 };
