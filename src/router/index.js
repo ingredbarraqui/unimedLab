@@ -1,6 +1,8 @@
 import BannerCriarEditar from "@/views/banner/BannerCriarEditar.vue";
 import BannerLista from "@/views/banner/BannerLista.vue";
 
+import CategoriaCriarEditar from "@/views/categoria/CategoriaCriarEditar.vue";
+import CategoriaLista from "@/views/categoria/CategoriaLista.vue";
 import ExamesCriarEditar from "@/views/exames/ExamesCriarEditar.vue";
 import ExamesLista from "@/views/exames/ExamesLista.vue";
 import HomePage from "@/views/HomePage.vue";
@@ -152,6 +154,37 @@ const router = createRouter({
           props: ({ params }) => ({
             ...params,
             ...{ noticiaId: Number.parseInt(params.noticiaId) || undefined },
+          }),
+        },
+      ],
+    },
+    {
+      path: '/categorias',
+      component: HomePage,
+      children: [
+        {
+          path: '',
+          name: 'categoria',
+          component: CategoriaLista,
+        },
+        {
+          path: 'novaCategorias',
+          name: 'Criar Categoria',
+          component: CategoriaCriarEditar,
+          meta: {
+            título: 'Criar categoria',
+          },
+        },
+        {
+          path: ':categoriaId',
+          name: 'Editar Categoria',
+          component: CategoriaCriarEditar,
+          meta: {
+            título: 'Editar categoria',
+          },
+          props: ({ params }) => ({
+            ...params,
+            ...{ categoriaId: Number.parseInt(params.categoriaId) || undefined },
           }),
         },
       ],
