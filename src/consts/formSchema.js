@@ -39,3 +39,22 @@ export const banner = object()
     .label('Link'),
 });
 
+export const noticia = object()
+.shape({
+  title: string()
+    .label('Titulo')
+    .required('obrigatório'),
+  slug: string()
+    .label('Slug')
+    .required('obrigatório'),
+  image: string()
+    .label('Imagem')
+    .required('obrigatório'),
+  content: string()
+    .label('Conteúdo')
+    .required('obrigatório'),
+  newLetterCategoryId: mixed()
+    .label('Categoria')
+    .required('obrigatório'),
+});
+

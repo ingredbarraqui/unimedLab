@@ -4,6 +4,8 @@ import BannerLista from "@/views/banner/BannerLista.vue";
 import HomePage from "@/views/HomePage.vue";
 import Index from "@/views/login/Index.vue";
 import Login from "@/views/login/Login.vue";
+import NoticiaCriarEditar from "@/views/noticia/NoticiaCriarEditar.vue";
+import NoticiaLista from "@/views/noticia/NoticiaLista.vue";
 
 import UsuarioCriarEditar from "@/views/usuarios/UsuarioCriarEditar.vue";
 import UsuariosLista from "@/views/usuarios/usuariosLista.vue";
@@ -72,6 +74,37 @@ const router = createRouter({
           props: ({ params }) => ({
             ...params,
             ...{ bannerId: Number.parseInt(params.bannerId) || undefined },
+          }),
+        },
+      ],
+    },
+    {
+      path: '/noticias',
+      component: HomePage,
+      children: [
+        {
+          path: '',
+          name: 'Noticia',
+          component: NoticiaLista,
+        },
+        {
+          path: 'novaNoticia',
+          name: 'Criar Noticia',
+          component: NoticiaCriarEditar,
+          meta: {
+            título: 'Criar notícia',
+          },
+        },
+        {
+          path: ':noticiaId',
+          name: 'Editar Noticia',
+          component: NoticiaCriarEditar,
+          meta: {
+            título: 'Editar notícia',
+          },
+          props: ({ params }) => ({
+            ...params,
+            ...{ noticiaId: Number.parseInt(params.noticiaId) || undefined },
           }),
         },
       ],
