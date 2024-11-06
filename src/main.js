@@ -12,6 +12,7 @@ import router from './router';
 import LabelFromYup from '@/components/LabelFromYup.vue';
 
 import '@coreui/coreui/dist/css/coreui.min.css';
+import 'vue-multiselect/dist/vue-multiselect.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '/src/css/style.css';
