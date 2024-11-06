@@ -127,6 +127,30 @@ export const unidade = object()
     .nullable(),
 });
 
+export const exame = object()
+.shape({
+  name: string()
+    .label('Nome')
+    .required('obrigatório'),
+  slug: string()
+    .label('Slug')
+    .required('obrigatório'),
+  cautions: string()
+    .label('Cuidados')
+    .nullable(),
+  resultDeadline: string()
+    .label('Prazo para entrega')
+    .nullable(),
+  description: string()
+    .label('Descrição')
+    .nullable(),
+  ageGroup: array()
+    .label('Faixa etária'),
+  otherNames: array()
+    .label('Outros nomes'),
+  healthFacilityIds: array()
+    .label('Unidades de saúde'),
+});
 
 export const video = object()
 .shape({

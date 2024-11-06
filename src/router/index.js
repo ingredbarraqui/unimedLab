@@ -1,6 +1,8 @@
 import BannerCriarEditar from "@/views/banner/BannerCriarEditar.vue";
 import BannerLista from "@/views/banner/BannerLista.vue";
 
+import ExamesCriarEditar from "@/views/exames/ExamesCriarEditar.vue";
+import ExamesLista from "@/views/exames/ExamesLista.vue";
 import HomePage from "@/views/HomePage.vue";
 import Index from "@/views/login/Index.vue";
 import Login from "@/views/login/Login.vue";
@@ -149,6 +151,37 @@ const router = createRouter({
           props: ({ params }) => ({
             ...params,
             ...{ noticiaId: Number.parseInt(params.noticiaId) || undefined },
+          }),
+        },
+      ],
+    },
+    {
+      path: '/exames',
+      component: HomePage,
+      children: [
+        {
+          path: '',
+          name: 'exame',
+          component: ExamesLista,
+        },
+        {
+          path: 'novoExame',
+          name: 'Criar Exame',
+          component: ExamesCriarEditar,
+          meta: {
+            título: 'Criar exame',
+          },
+        },
+        {
+          path: ':exameId',
+          name: 'Editar Exame',
+          component: ExamesCriarEditar,
+          meta: {
+            título: 'Editar exame',
+          },
+          props: ({ params }) => ({
+            ...params,
+            ...{ exameId: Number.parseInt(params.exameId) || undefined },
           }),
         },
       ],
