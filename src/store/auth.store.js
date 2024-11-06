@@ -19,7 +19,7 @@ export const useAuthStore = defineStore({
           `${baseUrl}/login`, user
         );
 
-        if(response.token){
+        if(response.success === true){
           this.token = response.token;
           localStorage.setItem('token', JSON.stringify(response.token))
           await this.getDados();
@@ -57,34 +57,10 @@ export const useAuthStore = defineStore({
         if(response.status == msg){
           alertStore.success('Conta criado com sucesso!');
           await this.login(novoUsuario)
-
-          // router.push({
-          //   name: "pagamento",
-          //   params: { planoId: this.planoId }
-          // });
-          
         }
 
         return response
       } catch (error) {
-        alertStore.error(error);
-      }
-    },
-
-    async atualizarPerfil(user) {
-      try {
-        const payload = {
-          ...user,
-        };
-
-        const response = await this.requestS.put(
-          `${baseUrl}/auth/profile/${this.user.id}`, payload
-        );
-
-        await this.getDados()
-        return response
-      } catch (error) {
-        const alertStore = useAlertStore();
         alertStore.error(error);
       }
     },
@@ -96,28 +72,16 @@ export const useAuthStore = defineStore({
         );
 
         const alertStore = useAlertStore();
-        alertStore.success('Uma senha temporária foi enviada para o seu e-mail.');
-        this.router.push('/login');
+        if(response.success === true){
+          alertStore.success('Uma senha temporária foi enviada para o seu e-mail.');
+          this.router.push('/login');
+        }
         
         if (!response.ok) {
           throw new Error('Recuperação de senha, falhou');
         }
 
       } catch (error){
-        const alertStore = useAlertStore();
-        alertStore.error(error);
-      }
-    },
-
-    async novaSenhaPerfil(password) {
-      try {
-        await this.requestS.put(`
-          ${baseUrl}/auth/profile/password/${this.user.id}`, password
-        );
-
-        const alertStore = useAlertStore();
-        alertStore.success('Senha salva com sucesso.');
-      } catch (error) {
         const alertStore = useAlertStore();
         alertStore.error(error);
       }
