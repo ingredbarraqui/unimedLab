@@ -1,6 +1,12 @@
 import {
+  object,
   string,
+  ref,
+  mixed,
+  array,
+  number
 } from 'yup';
+
 
 export const autenticação = object()
 .shape({
