@@ -6,6 +6,8 @@ import Index from "@/views/login/Index.vue";
 import Login from "@/views/login/Login.vue";
 import NoticiaCriarEditar from "@/views/noticia/NoticiaCriarEditar.vue";
 import NoticiaLista from "@/views/noticia/NoticiaLista.vue";
+import UnidadeCriarEditar from "@/views/unidade/UnidadeCriarEditar.vue";
+import UnidadeLista from "@/views/unidade/UnidadeLista.vue";
 
 import UsuarioCriarEditar from "@/views/usuarios/UsuarioCriarEditar.vue";
 import UsuariosLista from "@/views/usuarios/usuariosLista.vue";
@@ -147,6 +149,37 @@ const router = createRouter({
           props: ({ params }) => ({
             ...params,
             ...{ noticiaId: Number.parseInt(params.noticiaId) || undefined },
+          }),
+        },
+      ],
+    },
+    {
+      path: '/unidades',
+      component: HomePage,
+      children: [
+        {
+          path: '',
+          name: 'unidade',
+          component: UnidadeLista,
+        },
+        {
+          path: 'novaUnidade',
+          name: 'Criar Unidade',
+          component: UnidadeCriarEditar,
+          meta: {
+            título: 'Criar Unidade',
+          },
+        },
+        {
+          path: ':unidadeId',
+          name: 'Editar Unidade',
+          component: UnidadeCriarEditar,
+          meta: {
+            título: 'Editar unidade',
+          },
+          props: ({ params }) => ({
+            ...params,
+            ...{ unidadeId: Number.parseInt(params.unidadeId) || undefined },
           }),
         },
       ],

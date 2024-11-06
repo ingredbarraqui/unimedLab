@@ -89,6 +89,44 @@ export const vacina = object()
     .label('Unidades de saúde'),
 });
 
+export const unidade = object()
+.shape({
+  email: string()
+    .label('E-mail')
+    .email('E-mail inválido')
+    .required('Preencha seu e-mail'),
+  name: string()
+    .label('Nome')
+    .required('obrigatório'),
+  slug: string()
+    .label('Slug')
+    .required('obrigatório'),
+  phone: string()
+    .label('Telefone')
+    .required('Obrigatório'),
+  cep: string()
+    .label('CEP')
+    .required('Obrigatório'),
+  number: string()
+    .label('Número')
+    .required('Obrigatório'),
+  street: string()
+    .label('Endereço')
+    .required('Obrigatório'),
+  neighborhood: string()
+    .label('Bairro')
+    .required('Obrigatório'),
+  city: string()
+    .label('Cidade')
+    .required('Obrigatório'),
+  state: string()
+    .label('Estado')
+    .required('Obrigatório'),
+  complement: string()
+    .label('Complemento')
+    .nullable(),
+});
+
 
 export const video = object()
 .shape({
