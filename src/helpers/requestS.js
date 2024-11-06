@@ -99,8 +99,8 @@ async function handleResponse(response) {
         errorMessage = listErrors(data.errors);
       } else if (data.error) {
         errorMessage = data.error;
-      } else if (data.msg) {
-        errorMessage = data.msg;
+      } else if (data.message) {
+        errorMessage = data.message;
       }
     }
 
