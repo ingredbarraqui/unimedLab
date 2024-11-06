@@ -4,6 +4,7 @@ import BannerLista from "@/views/banner/BannerLista.vue";
 import ExamesCriarEditar from "@/views/exames/ExamesCriarEditar.vue";
 import ExamesLista from "@/views/exames/ExamesLista.vue";
 import HomePage from "@/views/HomePage.vue";
+import EsqueciSenha from "@/views/login/EsqueciSenha.vue";
 import Index from "@/views/login/Index.vue";
 import Login from "@/views/login/Login.vue";
 import NoticiaCriarEditar from "@/views/noticia/NoticiaCriarEditar.vue";
@@ -225,6 +226,11 @@ const router = createRouter({
           path: '',
           name: 'Login',
           component: Login,
+        },
+        {
+          path: '/esqueci-minha-senha',
+          name: 'Esqueci minha senha',
+          component: EsqueciSenha,
         },
       ]
     },

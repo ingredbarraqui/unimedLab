@@ -7,6 +7,13 @@ import {
   number
 } from 'yup';
 
+export const email = object()
+.shape({
+  email: string()
+    .label('E-mail')
+    .email('E-mail inválido')
+    .required('Preencha seu e-mail'),
+});
 
 export const autenticação = object()
 .shape({
