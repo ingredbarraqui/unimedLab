@@ -5,7 +5,7 @@
       <div class="d-flex align-items-center gap-3">
         <router-link
           :to="{ name: 'Criar Banner' }"
-          class="btnLaranja"
+          class="btnVerde"
         >
           Novo banner
         </router-link>  
