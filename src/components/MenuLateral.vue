@@ -1,13 +1,13 @@
 <template>
   <div class="menu_lateral menu">
-    <CSidebar unfoldable>
+    <CSidebar>
       <CSidebarNav>
         <div>
           <div class="menu mb-3">
             <img
               class="mt-3"
               src="../assets/images/unimedLogoColor.png"
-              alt="Logo avalion"
+              alt="Logo Unimed"
             >
           </div>
         </div>
@@ -18,7 +18,7 @@
         </CNavItem>
         <CNavItem href="/banners">
           <router-link to="/banners">
-            <font-awesome-icon icon="fa-solid fa-image" />Banner
+            <font-awesome-icon icon="fa-solid fa-image" />Banners
           </router-link>
         </CNavItem>
         <CNavItem href="/noticias">
@@ -28,23 +28,34 @@
         </CNavItem>
         <CNavItem href="/categorias">
           <router-link to="/categorias">
-            <font-awesome-icon icon="fa-solid fa-newspaper" />Categoria
+            <font-awesome-icon icon="fa-solid fa-layer-group" />Categorias
           </router-link>
         </CNavItem>
-        <CNavItem href="/vacina">
-          <router-link to="/vacina">
+        <CNavItem href="/vacinas">
+          <router-link to="/vacinas">
             <font-awesome-icon icon="fa-solid fa-syringe" />Vacinas
           </router-link>
         </CNavItem>
-        <CNavItem href="/unidade">
-          <router-link to="/unidade">
+        <CNavItem href="/unidades">
+          <router-link to="/unidades">
             <font-awesome-icon icon="fa-solid fa-house-medical-flag" />Unidades
           </router-link>
         </CNavItem>
-        <CNavItem href="/exame">
-          <router-link to="/exame">
+        <CNavItem href="/exames">
+          <router-link to="/exames">
             <font-awesome-icon icon="fa-solid fa-file-waveform" />Exames
           </router-link>
+        </CNavItem>
+        <CNavItem href="/video">
+          <router-link to="/video">
+            <font-awesome-icon icon="fa-solid fa-video" />Vídeo
+          </router-link>
+        </CNavItem>
+        <CNavItem 
+          class="logout d-flex align-items-center"  
+          @click="logout"
+        >
+          <font-awesome-icon icon="right-from-bracket" class="me-2 ms-3" /> Sair
         </CNavItem>
       </CSidebarNav>
     </CSidebar>
@@ -53,6 +64,16 @@
 
 <script setup>
 import { CNavItem, CSidebar, CSidebarNav } from '@coreui/vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '../store/auth.store';
+
+const authStore = useAuthStore();
+const router = useRouter();
+
+function logout() {
+  authStore.logout();
+  router.push('/login');
+}
 </script>
 
 <style>
@@ -60,6 +81,7 @@ import { CNavItem, CSidebar, CSidebarNav } from '@coreui/vue';
   max-width: 330px;
   border-radius: 32px;
   font-weight: 500;
+  height: 100%;
 }
 
 .menu_lateral img{
@@ -73,12 +95,10 @@ import { CNavItem, CSidebar, CSidebarNav } from '@coreui/vue';
   display: grid;
 }
 
-.sidebar-narrow-unfoldable {
-  position: relative !important;
-}
-
-.sidebar-narrow, .sidebar-narrow-unfoldable:not(:hover) {
-    --cui-sidebar-narrow-width: 5rem !important;
+.logout {
+  position: absolute;
+  bottom: 23px;
+  cursor: pointer;
 }
 
 .sidebar{
