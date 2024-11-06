@@ -44,7 +44,7 @@
               <option
                 v-for="item in Object.values(ativoInativo)"
                 :key="item.nome"
-                :value="item.nome"
+                :value="item.valor"
               >
                 {{ item.nome }}
               </option>
