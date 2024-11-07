@@ -59,7 +59,8 @@ export const noticia = object()
     .required('Obrigatório'),
   slug: string()
     .label('Slug')
-    .required('Obrigatório'),
+    .required('Obrigatório')
+    .matches(/^[a-zA-Z0-9_-]+$/, 'Slug não pode conter caracteres especiais ou espaços'),
   image: string()
     .label('Imagem')
     .required('Obrigatório'),
@@ -113,7 +114,8 @@ export const unidade = object()
     .required('Obrigatório'),
   slug: string()
     .label('Slug')
-    .required('Obrigatório'),
+    .required('Obrigatório')
+    .matches(/^[a-zA-Z0-9_-]+$/, 'Slug não pode conter caracteres especiais ou espaços'),
   phone: string()
     .label('Telefone')
     .required('Obrigatório'),
@@ -147,7 +149,8 @@ export const exame = object()
     .required('Obrigatório'),
   slug: string()
     .label('Slug')
-    .required('Obrigatório'),
+    .required('Obrigatório')
+    .matches(/^[a-zA-Z0-9_-]+$/, 'Slug não pode conter caracteres especiais ou espaços'),
   cautions: string()
     .label('Cuidados')
     .nullable(),
