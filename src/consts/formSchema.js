@@ -34,7 +34,7 @@ export const novoUsuario = object()
     .required('Preencha seu e-mail'),
   name: string()
     .label('Nome')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   password: string()
     .label('Nova senha')
     .min(8, 'Senha deve conter no mínimo 8 caracteres')
@@ -56,39 +56,39 @@ export const noticia = object()
 .shape({
   title: string()
     .label('Titulo')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   slug: string()
     .label('Slug')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   image: string()
     .label('Imagem')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   content: string()
     .label('Conteúdo')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   newLetterCategoryId: mixed()
     .label('Categoria')
-    .required('obrigatório'),
+    .required('Obrigatório'),
 });
 
 export const categoria = object()
 .shape({
   category: string()
-    .label('categoria')
-    .required('obrigatório'),
+    .label('Categoria')
+    .required('Obrigatório'),
   description: string()
     .label('Descrição de categoria')
-    .required('obrigatório'),
+    .required('Obrigatório'),
 });
 
 export const vacina = object()
 .shape({
   name: string()
     .label('Nome')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   applicationMethod: string()
     .label('Método de aplicação')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   cautions: string()
     .label('Cuidados')
     .nullable(),
@@ -110,10 +110,10 @@ export const unidade = object()
     .required('Preencha seu e-mail'),
   name: string()
     .label('Nome')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   slug: string()
     .label('Slug')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   phone: string()
     .label('Telefone')
     .required('Obrigatório'),
@@ -144,10 +144,10 @@ export const exame = object()
 .shape({
   name: string()
     .label('Nome')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   slug: string()
     .label('Slug')
-    .required('obrigatório'),
+    .required('Obrigatório'),
   cautions: string()
     .label('Cuidados')
     .nullable(),
@@ -169,7 +169,7 @@ export const video = object()
 .shape({
   link: string()
     .label('Url')
-    .required('obrigatório')
+    .required('Obrigatório')
     .matches(
       /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/,
       'A URL deve ser de um vídeo do YouTube'

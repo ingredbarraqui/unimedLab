@@ -31,7 +31,7 @@
           </div>
 
           <div class="d-grid">
-            <label>status</label>
+            <label>Status</label>
             <select
               id="status"
               v-model.trim="status"

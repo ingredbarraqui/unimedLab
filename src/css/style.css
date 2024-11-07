@@ -145,10 +145,9 @@ textarea.inputtext {
 .menu svg{
   width: 21px;
   color: var(--verde);
-  background: var(--cinzaClaro);
-  padding: 14px;
+  padding: 10px;
   border-radius: 7px;
-  margin-right: 12px;
+  margin-right: 8px;
 }
 
 .menu a{
@@ -199,6 +198,10 @@ textarea.inputtext {
 
 .nav-tabs .nav-link{
   border-radius: 7px !important;
+}
+
+.sidebar-nav .nav-link{
+  padding: 8px;
 }
 
 thead{
