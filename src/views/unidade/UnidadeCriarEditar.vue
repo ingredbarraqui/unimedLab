@@ -17,13 +17,13 @@
           <LabelFromYup 
             name="name" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="name"
             placeholder="Seu nome"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.name }"
           />
           <ErrorMessage
             class="error-msg"
@@ -35,13 +35,13 @@
           <LabelFromYup 
             name="slug" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="slug"
             placeholder="Slug da notícia"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.slug }"
           />
           <ErrorMessage
             class="error-msg"
@@ -61,11 +61,6 @@
             placeholder="seu_email@provedor.com" 
             type="text" 
             class="inputtext"
-            :class="{ 'error': errors.email }"
-          />
-          <ErrorMessage 
-            class="error-msg" 
-            name="email"
           />
         </div>
 
@@ -82,11 +77,6 @@
             placeholder="(00) 00000-0000"
             class="inputtext"
             maxlength="15"
-            :class="{ 'error': errors.phone }"
-          />
-          <ErrorMessage
-            class="error-msg"
-            name="phone"
           />
         </div>
       </div>
@@ -97,6 +87,7 @@
             <LabelFromYup 
               name="cep"
               :schema="schema"
+              :required="true"
             />
             <Field
               v-model="cep"
@@ -107,7 +98,6 @@
               class="inputtext"
               maxlength="9"
               data-maska="#####-###"
-              :class="{ 'error': errors.cep }"
               @focusout="getCep"
             />
             <ErrorMessage
@@ -127,6 +117,7 @@
           <LabelFromYup
             name="street" 
             :schema="schema"
+            :required="true"
           />
           <Field
             v-model="listaCep.logradouro"
@@ -134,7 +125,6 @@
             type="text" 
             placeholder="Rua" 
             class="inputtext light mb-2"
-            :class="{ 'error': errors.street }"
           />
           <ErrorMessage 
             class="error-msg"
@@ -146,13 +136,13 @@
           <LabelFromYup 
             name="number" 
             :schema="schema"
+            :required="true"
           />
           <Field 
             name="number" 
             type="text" 
             placeholder="Número" 
             class="inputtext"
-            :class="{ 'error': errors.number }"
           />
           <ErrorMessage 
             class="error-msg" 
@@ -166,6 +156,7 @@
           <LabelFromYup 
             name="neighborhood" 
             :schema="schema"
+            :required="true"
           />
           <Field
             v-model="listaCep.bairro"
@@ -173,7 +164,6 @@
             type="text" 
             placeholder="Bairro" 
             class="inputtext"
-            :class="{ 'error': errors.neighborhood }"
           />
           <ErrorMessage 
             class="error-msg"
@@ -200,6 +190,7 @@
           <LabelFromYup 
             name="city" 
             :schema="schema"
+            :required="true"
           />
           <Field
             v-model="listaCep.localidade"
@@ -207,7 +198,6 @@
             type="text" 
             placeholder="Cidade" 
             class="inputtext"
-            :class="{ 'error': errors.city }"
           />
           <ErrorMessage 
             class="error-msg" 
@@ -219,6 +209,7 @@
           <LabelFromYup 
             name="state" 
             :schema="schema"
+            :required="true"
           />
           <Field 
             v-model="listaCep.uf"
@@ -226,7 +217,6 @@
             type="text" 
             placeholder="Estado" 
             class="inputtext light mb-2"
-            :class="{ 'error': errors.state }"
           />
           <ErrorMessage 
             class="error-msg"
@@ -235,32 +225,159 @@
         </div>
       </div>
 
-      <div class="d-flex gap-3">
-        <div class="mb-3 w-100"> 
-          <label>Coleta</label>
-          <multiselect
-            v-model="selectedCollections"
-            :options="optionsHours"
-            :multiple="true"
-            placeholder="Faixa etária"
-            label="valor"
-            name="collections"
-            track-by="valor"
-          />
-        </div>
+      
+      <div class="mb-3">
+        <LabelFromYup 
+          name="services" 
+          :schema="schema"
+          :required="true"
+        />
+        <FieldArray 
+          v-slot="{ fields, push, remove }" 
+          name="services"
+        >
+          <div 
+            v-for="(field, index) in fields" 
+            :key="field.key"
+            class="gap-3 d-flex align-items-center mb-1"
+          >
+            <div class="w-100">
+              <Field
+                :name="`services[${index}].dia`"
+                placeholder="Dia da semana"
+                type="text"
+                class="inputtext"
+              />
+              <ErrorMessage 
+                :name="`services[${index}].dia`" 
+                class="error-msg" 
+              />
+            </div>
 
-        <div class="mb-3 w-100"> 
-          <label>Serviços</label>
-          <multiselect
-            v-model="selectedServices"
-            :options="optionsHours"
-            :multiple="true"
-            placeholder="Prevenções"
-            label="valor"
-            name="services"
-            track-by="valor"
-          />
-        </div>
+            <div class="w-100">
+              <Field
+                :name="`services[${index}].horarioInicio`"
+                placeholder="Horário inicial"
+                type="time"
+                class="inputtext"
+              />
+              <ErrorMessage 
+                :name="`services[${index}].horarioInicio`" 
+                class="error-msg" 
+              />
+            </div>
+
+            <div class="w-100">
+              <Field
+                :name="`services[${index}].horarioFim`"
+                placeholder="Horário final"
+                type="time"
+                class="inputtext"
+              />
+              <ErrorMessage 
+                :name="`services[${index}].horarioFim`" 
+                class="error-msg" 
+              />
+            </div>
+
+            <button 
+              type="button" 
+              class="btn btn-danger ms-2" 
+              @click="remove(index)"
+            >
+              Remover
+            </button>
+          </div>
+
+          <button 
+            type="button" 
+            class="btn w-100 p-0 d-flex align-items-center addlink" 
+            @click="push({ dia: '', horarioInicio: '', horarioFim: '' })"
+          >
+            <font-awesome-icon 
+              class="pe-2" 
+              icon="circle-plus" 
+            />
+            Adicionar horários
+          </button>
+        </FieldArray>
+      </div>
+
+      <div class="mb-3">
+        <LabelFromYup 
+          name="collections" 
+          :schema="schema"
+          :required="true"
+        />
+        <FieldArray 
+          v-slot="{ fields, push, remove }" 
+          name="collections"
+        >
+          <div 
+            v-for="(field, index) in fields" 
+            :key="field.key"
+            class="gap-3 d-flex align-items-center mb-1"
+          >
+            <div class="w-100">
+              <Field
+                :name="`collections[${index}].dia`"
+                placeholder="Dia da semana"
+                type="text"
+                class="inputtext"
+              />
+              <ErrorMessage 
+                :name="`collections[${index}].dia`" 
+                class="error-msg" 
+              />
+            </div>
+
+            <div class="w-100">
+              <Field
+                :name="`collections[${index}].horarioInicio`"
+                placeholder="Horário inicial"
+                type="time"
+                class="inputtext"
+              />
+              <ErrorMessage 
+                :name="`collections[${index}].horarioInicio`" 
+                class="error-msg" 
+              />
+            </div>
+
+            <div class="w-100">
+              <Field
+                :name="`collections[${index}].horarioFim`"
+                placeholder="Horário final"
+                type="time"
+                class="inputtext"
+              />
+              <ErrorMessage 
+                :name="`collections[${index}].horarioFim`" 
+                class="error-msg" 
+              />
+            </div>
+
+            <button 
+              type="button" 
+              class="btn btn-danger ms-2" 
+              @click="remove(index)"
+            >
+              Remover
+            </button>
+          </div>
+
+          <button 
+            type="button" 
+            class="btn p-0 d-flex align-items-center addlink" 
+            @click="push({ dia: '', horarioInicio: '', horarioFim: '' })"
+          >
+            <font-awesome-icon 
+              class="pe-2" 
+              icon="circle-plus" 
+            />
+            Adicionar horários
+          </button>
+        </FieldArray>
       </div>
 
       <div class="d-flex flex-column align-items-center mt-4">
@@ -282,14 +399,12 @@
 
 <script setup>
 import { unidade as schema } from '@/consts/formSchema';
-import horarios from '@/consts/horarios.js';
 import { useCepStore } from '@/store/buscaCep.store';
 import { useUnidadeStore } from '@/store/unidade.store.js';
 import { vMaska } from "maska/vue";
 import { storeToRefs } from 'pinia';
-import { ErrorMessage, Field, useForm } from 'vee-validate';
-import { computed, defineProps, ref, watch } from 'vue';
-import Multiselect from 'vue-multiselect';
+import { ErrorMessage, Field, FieldArray, useForm } from 'vee-validate';
+import { defineProps, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useAlertStore } from '../../consts/alert.store.js';
 
@@ -308,21 +423,15 @@ const location = ref({
   lang: ''
 })
 
-const selectedCollections = ref({})
-const selectedServices = ref({})
-const optionsHours = computed(() => {
-  return Object.keys(horarios).map((key) => ({
-    key: key,
-    valor: horarios[key].valor,
-  }));
-});
-
-
 const {
   errors, isSubmitting, handleSubmit, values, resetForm
 } = useForm({
   validationSchema: schema,
-  initialValues: emFoco.value,
+  initialValues: {
+    collections: emFoco.value?.collections || [{ dia: '', horarioInicio: '', horarioFim: '' }],
+    services: emFoco.value?.services || [{ dia: '', horarioInicio: '', horarioFim: '' }],
+    ...emFoco.value,
+  },
 });
 
 const props = defineProps({
@@ -343,26 +452,22 @@ async function getCep(cep) {
   }
 }
 
-const formatSelectionsAsObject = (selections) => {
-  return selections.reduce((acc, item) => {
-    const key = Object.keys(horarios).find(
-      (k) => horarios[k].valor === item.valor
-    );
-    if (key) acc[key] = item.valor;
-    return acc;
-  }, {});
-};
-
-const formatObjectToSelections = (obj) => {
-  return Object.keys(obj).map((key) => {
-    return {
-      valor: obj[key]
-    };
+function transformarHorariosEmObjeto(horariosArray) {
+  const resultado = {};
+  horariosArray.forEach(item => {
+    if (item.dia && item.horarioInicio && item.horarioFim) {
+      resultado[item.dia] = `Das ${item.horarioInicio} às ${item.horarioFim}`;
+    }
   });
-};
+  return resultado;
+}
+
 
 const onSubmitUsuario = handleSubmit(async (values) => {
   try {
+    const services = transformarHorariosEmObjeto(values.services);
+    const collections = transformarHorariosEmObjeto(values.collections);
+    
     const msg = props.unidadeId
       ? 'Dados salvos com sucesso!'
       : 'Item adicionado com sucesso!';
@@ -371,9 +476,11 @@ const onSubmitUsuario = handleSubmit(async (values) => {
       ...values,
       'lat': location.value.lat || emFoco.value?.lat,
       'lang': location.value.lang || emFoco.value?.lang,
-      'services': formatSelectionsAsObject(selectedServices.value) || emFoco.value?.services,
-      'collections': formatSelectionsAsObject(selectedCollections.value) || emFoco.value?.collections,
+      'services': services,
+      'collections': collections,
     };
+
+    console.log(payload)
 
     const resposta = props.unidadeId
       ? await unidadeStore.salvarItem(payload, props.unidadeId)
@@ -398,21 +505,22 @@ iniciar()
 
 watch(emFoco, (novoValor) => {
   if (novoValor) {
-    resetForm({ values: novoValor });
-    
-    if (novoValor.collections) {
-      selectedCollections.value = formatObjectToSelections(novoValor.collections);
-    } else {
-      selectedCollections.value = [];
-    }
-
-    if (novoValor.services) {
-      selectedServices.value = formatObjectToSelections(novoValor.services);
-    } else {
-      selectedServices.value = [];
-    }
+    resetForm({
+      values: {
+        ...novoValor,
+        collections: Object.entries(novoValor.collections || {}).map(([dia, horario]) => {
+          const [horarioInicio, horarioFim] = horario.replace('Das ', '').split(' às ');
+          return { dia, horarioInicio, horarioFim };
+        }),
+        services: Object.entries(novoValor.services || {}).map(([dia, horario]) => {
+          const [horarioInicio, horarioFim] = horario.replace('Das ', '').split(' às ');
+          return { dia, horarioInicio, horarioFim };
+        }),
+      }
+    });
   }
 }, { immediate: true });
+
 </script>
 
 <style scoped>
@@ -425,5 +533,10 @@ watch(emFoco, (novoValor) => {
 .image img{
   max-width: 400px;
   border-radius: 8px;
+}
+
+.addlink svg {
+  width: 20px;
+  color: var(--verdeClaro);
 }
 </style>

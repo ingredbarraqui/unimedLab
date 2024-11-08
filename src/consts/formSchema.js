@@ -107,8 +107,7 @@ export const unidade = object()
 .shape({
   email: string()
     .label('E-mail')
-    .email('E-mail inválido')
-    .required('Preencha seu e-mail'),
+    .email('E-mail inválido'),
   name: string()
     .label('Nome')
     .required('Obrigatório'),
@@ -118,7 +117,7 @@ export const unidade = object()
     .matches(/^[a-zA-Z0-9_-]+$/, 'Slug não pode conter caracteres especiais ou espaços'),
   phone: string()
     .label('Telefone')
-    .required('Obrigatório'),
+    .nullable(),
   cep: string()
     .label('CEP')
     .required('Obrigatório'),
@@ -140,6 +139,22 @@ export const unidade = object()
   complement: string()
     .label('Complemento')
     .nullable(),
+  collections: array().of(
+      object().shape({
+        dia: string().required('Obrigatório'),
+        horarioInicio: string().required('Obrigatório'),
+        horarioFim: string().required('Obrigatório'),
+      })
+    ).min(1, 'É necessário adicionar pelo menos um horário')
+    .label('Coleta'),
+    services: array().of(
+      object().shape({
+        dia: string().required('Obrigatório'),
+        horarioInicio: string().required('Obrigatório'),
+        horarioFim: string().required('Obrigatório'),
+      })
+    ).min(1, 'É necessário adicionar pelo menos um horário')
+    .label('Serviços')
 });
 
 export const exame = object()
