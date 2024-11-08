@@ -17,13 +17,13 @@
           <LabelFromYup 
             name="title" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="title"
             placeholder="Titulo da notícia"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.title }"
           />
           <ErrorMessage
             class="error-msg"
@@ -35,13 +35,13 @@
           <LabelFromYup 
             name="slug" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="slug"
             placeholder="Slug da notícia"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.slug }"
           />
           <ErrorMessage
             class="error-msg"
@@ -55,13 +55,13 @@
           <LabelFromYup 
             name="image" 
             :schema="schema"
+            :required="true"
           />
           <Field
             id="image"
             name="image"
             type="file" 
             class="inputtext"
-            :class="{ 'error': errors.image }"
             @change="onFotoChange"
           />
           <ErrorMessage 
@@ -74,11 +74,11 @@
           <LabelFromYup 
             name="newLetterCategoryId" 
             :schema="schema"
+            :required="true"
           />
           <Field
             id="newLetterCategoryId"
             class="inputtext"
-            :class="{ 'error': errors.newLetterCategoryId }"
             name="newLetterCategoryId"
             as="select"
           >
@@ -104,6 +104,7 @@
         <LabelFromYup 
           name="content" 
           :schema="schema"
+          :required="true"
         />
         <Field
           v-focus
@@ -111,7 +112,6 @@
           placeholder="Conteúdo" 
           as="textarea" 
           class="inputtext"
-          :class="{ 'error': errors.content }"
         />
         <ErrorMessage 
           class="error-msg" 

@@ -50,6 +50,12 @@ export const banner = object()
 .shape({
   link: string()
     .label('Link'),
+  name: string()
+    .label('Nome')
+    .required('Obrigatório'),
+  image: string()
+    .label('Nome')
+    .required('Obrigatório'),
 });
 
 export const noticia = object()
@@ -78,8 +84,7 @@ export const categoria = object()
     .label('Categoria')
     .required('Obrigatório'),
   description: string()
-    .label('Descrição de categoria')
-    .required('Obrigatório'),
+    .label('Descrição de categoria'),
 });
 
 export const vacina = object()
@@ -96,11 +101,14 @@ export const vacina = object()
   description: string()
     .label('Descrição'),
   ageGroup: array()
-    .label('Faixa etária'),
+    .label('Faixa etária')
+    .required('Obrigatório'),
   preventAgainst: array()
-    .label('Prevenções'),
+    .label('Prevenções')
+    .required('Obrigatório'),
   healthFacilityIds: array()
-    .label('Unidades de saúde'),
+    .label('Unidades de saúde')
+    .required('Obrigatório'),
 });
 
 export const unidade = object()

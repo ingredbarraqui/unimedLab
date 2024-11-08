@@ -11,13 +11,13 @@
           <LabelFromYup 
             name="category" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="category"
             placeholder="Categoria"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.category }"
           />
           <ErrorMessage
             class="error-msg"
@@ -36,11 +36,6 @@
             placeholder="Conteúdo" 
             as="textarea" 
             class="inputtext"
-            :class="{ 'error': errors.description }"
-          />
-          <ErrorMessage 
-            class="error-msg" 
-            name="description"
           />
         </div>
       </div>

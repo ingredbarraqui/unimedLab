@@ -11,13 +11,17 @@
           <LabelFromYup 
             name="name" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="name"
             placeholder="Nome"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.name }"
+          />
+          <ErrorMessage 
+            class="error-msg" 
+            name="name"
           />
         </div>
 
@@ -31,7 +35,6 @@
             placeholder="Cuidades"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.cautions }"
           />
         </div>
       </div>
@@ -41,13 +44,13 @@
           <LabelFromYup 
             name="applicationMethod" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="applicationMethod"
             placeholder="Método de aplicação"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.applicationMethod }"
           />
           <ErrorMessage 
             class="error-msg" 
@@ -59,6 +62,7 @@
           <LabelFromYup 
             name="healthFacilityIds" 
             :schema="schema"
+            :required="true"
           />
           <multiselect
             v-model="selectedHealthFacilityIds"
@@ -83,7 +87,6 @@
           placeholder="Descrição" 
           as="textarea" 
           class="inputtext"
-          :class="{ 'error': errors.description }"
         />
         <ErrorMessage 
           class="error-msg" 
@@ -96,6 +99,7 @@
           <LabelFromYup 
             name="ageGroup" 
             :schema="schema"
+            :required="true"
           />
           <multiselect
             v-model="selectedFaixaEtaria"
@@ -112,6 +116,7 @@
           <LabelFromYup 
             name="preventAgainst" 
             :schema="schema"
+            :required="true"
           />
           <multiselect
             v-model="selectedPreventAgainst"

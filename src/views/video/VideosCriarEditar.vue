@@ -10,6 +10,7 @@
         <LabelFromYup 
           name="link" 
           :schema="schema"
+          :required="true"
         />
         <div class="w-100 d-flex align-items-center">
           <Field
@@ -17,7 +18,6 @@
             placeholder="Link do youtube"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.link }"
           />
           <button
             v-if="emFoco?.id"

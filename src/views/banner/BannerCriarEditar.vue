@@ -15,7 +15,7 @@
       @submit.prevent="onSubmitBanner"
     >
       <div class="mb-2 w-100">
-        <label for="image">Banner</label>
+        <label for="image">Banner <span class="required">*</span></label>
         <Field
           id="image"
           name="image"
@@ -23,7 +23,30 @@
           class="inputtext mb-2"
           @change="onFotoChange"
         />
+        <ErrorMessage 
+          class="error-msg" 
+          name="image"
+        />
         <small>Arquivos válidos: JPG, PNG e GIF</small>
+      </div>
+
+      
+      <div class="mb-3 w-100">
+        <LabelFromYup 
+          name="name" 
+          :schema="schema"
+          :required="true"
+        />
+        <Field 
+          name="name"
+          placeholder="name" 
+          type="text" 
+          class="inputtext"
+        />
+        <ErrorMessage 
+          class="error-msg" 
+          name="name"
+        />
       </div>
 
       <div class="mb-3 w-100">
@@ -36,11 +59,6 @@
           placeholder="Link" 
           type="text" 
           class="inputtext"
-          :class="{ 'error': errors.link }"
-        />
-        <ErrorMessage 
-          class="error-msg" 
-          name="link"
         />
       </div>
 

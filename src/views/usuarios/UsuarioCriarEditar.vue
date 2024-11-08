@@ -11,13 +11,13 @@
           <LabelFromYup 
             name="name" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="name"
             placeholder="Seu nome"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.name }"
           />
           <ErrorMessage
             class="error-msg"
@@ -29,13 +29,13 @@
           <LabelFromYup 
             name="email" 
             :schema="schema"
+            :required="true"
           />
           <Field 
             name="email"
             placeholder="seu_email@provedor.com" 
             type="text" 
             class="inputtext"
-            :class="{ 'error': errors.email }"
           />
           <ErrorMessage 
             class="error-msg" 
@@ -49,13 +49,13 @@
           <LabelFromYup 
             name="password" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="password" 
             placeholder="Nova senha" 
             type="password" 
-            class="inputtext"
-            :class="{ 'error': errors.password }"  
+            class="inputtext" 
           />
           <ErrorMessage 
             class="error-msg" 
@@ -66,13 +66,13 @@
           <LabelFromYup 
             name="password_confirmation" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="password_confirmation" 
             placeholder="Senha atual" 
             type="password" 
-            class="inputtext"
-            :class="{ 'error': errors.password_confirmation }"  
+            class="inputtext" 
           />
           <ErrorMessage 
             class="error-msg" 
@@ -105,7 +105,6 @@ import { ErrorMessage, Field, useForm } from 'vee-validate';
 import { defineProps, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useAlertStore } from '../../consts/alert.store.js';
-import ativoInativo from "../../consts/ativoInativo.js";
 import { useUsuariosStore } from '../../store/usuarios.store.js';
 
 const usuariosStore = useUsuariosStore()

@@ -11,13 +11,17 @@
           <LabelFromYup 
             name="name" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="name"
             placeholder="Nome"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.name }"
+          />
+          <ErrorMessage
+            class="error-msg"
+            name="name"
           />
         </div>
 
@@ -25,6 +29,7 @@
           <LabelFromYup 
             name="otherNames" 
             :schema="schema"
+            :required="true"
           />
           <multiselect
             v-model="selectedOtherNames"
@@ -45,13 +50,13 @@
           <LabelFromYup 
             name="slug" 
             :schema="schema"
+            :required="true"
           />
           <Field
             name="slug"
             placeholder="Slug do exame"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.slug }"
           />
           <ErrorMessage
             class="error-msg"
@@ -63,6 +68,7 @@
           <LabelFromYup 
             name="healthFacilityIds" 
             :schema="schema"
+            :required="true"
           />
           <multiselect
             v-model="selectedHealthFacilityIds"
@@ -81,6 +87,7 @@
           <LabelFromYup 
             name="ageGroup" 
             :schema="schema"
+            :required="true"
           />
           <multiselect
             v-model="selectedFaixaEtaria"
@@ -103,7 +110,6 @@
             placeholder="Prazo para entrega"
             type="text"
             class="inputtext"
-            :class="{ 'error': errors.resultDeadline }"
           />
           <ErrorMessage
             class="error-msg"
