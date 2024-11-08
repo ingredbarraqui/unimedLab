@@ -19,12 +19,10 @@
           <col>
           <col>
           <col>
-          <col>
-          <col>
-          <col>
           <thead>
             <tr>
               <th>Imagem</th>
+              <th>Nome</th>
               <th>Link</th>
               <th />
             </tr>
@@ -35,7 +33,8 @@
               :key="item.id"
             >
               <td class="image">{{ item.image }}</td>
-              <td class="image">{{ item.link }}</td>
+              <td class="image">{{ item.name }}</td>
+              <td class="image">{{ item.link ? item.link : '-' }}</td>
               <div class="d-flex gap-2">
                 <td class="tdBtnAcao">
                   <button
