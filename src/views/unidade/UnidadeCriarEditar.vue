@@ -52,14 +52,11 @@
 
       <div class="d-flex gap-3">
         <div class="mb-3 w-100">
-          <LabelFromYup 
-            name="email" 
-            :schema="schema"
-          />
+          <label for="email">Email</label>
           <Field
             name="email"
             placeholder="seu_email@provedor.com" 
-            type="text" 
+            type="email" 
             class="inputtext"
           />
         </div>

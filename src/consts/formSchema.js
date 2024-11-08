@@ -113,9 +113,6 @@ export const vacina = object()
 
 export const unidade = object()
 .shape({
-  email: string()
-    .label('E-mail')
-    .email('E-mail inválido'),
   name: string()
     .label('Nome')
     .required('Obrigatório'),
