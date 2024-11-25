@@ -99,16 +99,14 @@ export const vacina = object()
     .label('Cuidados')
     .nullable(),
   description: string()
-    .label('Descrição'),
+    .label('Descrição')
+    .nullable(),
   ageGroup: array()
-    .label('Faixa etária')
-    .required('Obrigatório'),
+    .label('Faixa etária'),
   preventAgainst: array()
-    .label('Prevenções')
-    .required('Obrigatório'),
+    .label('Prevenções'),
   healthFacilityIds: array()
-    .label('Unidades de saúde')
-    .required('Obrigatório'),
+    .label('Unidades de saúde'),
 });
 
 export const unidade = object()
