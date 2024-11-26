@@ -4,7 +4,7 @@ import {
   ref,
   mixed,
   array,
-  number
+  boolean
 } from 'yup';
 
 export const email = object()
@@ -139,6 +139,9 @@ export const unidade = object()
   state: string()
     .label('Estado')
     .required('Obrigatório'),
+  applyVaccine: boolean()
+  .label('Aplicará vacinas?')
+  .nullable(),
   complement: string()
     .label('Complemento')
     .nullable(),

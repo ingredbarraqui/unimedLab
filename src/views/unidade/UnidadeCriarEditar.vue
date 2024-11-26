@@ -222,6 +222,21 @@
         </div>
       </div>
 
+      <div class="d-flex mb-3">
+        <Field
+          v-model="applyVaccine"
+          name="applyVaccine"
+          type="checkbox"
+          :value="true"
+          class="inputcheckbox"
+        />
+        <LabelFromYup
+          name="applyVaccine"
+          :schema="schema"
+          class="ps-2 pb-0"
+        />
+      </div>
+
       
       <div class="mb-3">
         <LabelFromYup 
@@ -420,6 +435,8 @@ const location = ref({
   lang: ''
 })
 
+const applyVaccine = ref(false)
+
 const {
   errors, isSubmitting, handleSubmit, values, resetForm
 } = useForm({
@@ -476,8 +493,6 @@ const onSubmitUsuario = handleSubmit(async (values) => {
       'services': services,
       'collections': collections,
     };
-
-    console.log(payload)
 
     const resposta = props.unidadeId
       ? await unidadeStore.salvarItem(payload, props.unidadeId)
