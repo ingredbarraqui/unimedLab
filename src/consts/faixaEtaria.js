@@ -5,8 +5,8 @@ export default {
   "Crianças": {
     valor: 'Crianças',
   },
-  "Adolecentes": {
-    valor: 'Adolecentes',
+  "Adolescentes": {
+    valor: 'Adolescentes',
   },
   "Adultos": {
     valor: 'Adultos',
