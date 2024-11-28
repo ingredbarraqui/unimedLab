@@ -187,6 +187,47 @@ export const exame = object()
     .label('Outros nomes'),
   healthFacilityIds: array()
     .label('Unidades de saúde'),
+  tipo_coleta: array()
+    .label('Tipo de coleta'),
+  sanguineo: boolean()
+    .label('Sanguíneo')
+    .nullable(),
+  genetico: boolean()
+    .label('Genético')
+    .nullable(),
+  imunologico: boolean()
+    .label('Imunológico')
+    .nullable(),
+  bioquimicos: boolean()
+    .label('Bioquímicos')
+    .nullable(),
+  hematologicos: boolean()
+    .label('Hematológicos')
+    .nullable(),
+  microbiologicos: boolean()
+    .label('Microbiológicos')
+    .nullable(),
+  citologicos: boolean()
+    .label('Citológicos')
+    .nullable(),
+  toxicologicos: boolean()
+    .label('Toxicológicos')
+    .nullable(),
+  imagem: boolean()
+    .label('Imagem')
+    .nullable(),
+  funcionais: boolean()
+    .label('Funcionais')
+    .nullable(),
+  urinalise: boolean()
+    .label('Urinálise e Parasitologia')
+    .nullable(),
+  coberturaAns: boolean()
+    .label('Exame possui cobertura ANS?')
+    .nullable(),
+  agendado: boolean()
+    .label('Exame precisa ser agendado?')
+    .nullable(),
 });
 
 export const video = object()

@@ -118,18 +118,36 @@
         </div>
       </div>
 
-      <div class="mb-3 w-100">
-        <LabelFromYup 
-          name="cautions" 
-          :schema="schema"
-        />
-        <Field
-          name="cautions"
-          placeholder="Cuidados"
-          type="text"
-          class="inputtext"
-          :class="{ 'error': errors.cautions }"
-        />
+      <div class="d-flex gap-3">
+        <div class="mb-3 w-100">
+          <LabelFromYup 
+            name="cautions" 
+            :schema="schema"
+          />
+          <Field
+            name="cautions"
+            placeholder="Cuidados"
+            type="text"
+            class="inputtext"
+            :class="{ 'error': errors.cautions }"
+          />
+        </div>
+        <div class="mb-3 w-100">
+          <LabelFromYup 
+            name="tipo_coleta" 
+            :schema="schema"
+            :required="true"
+          />
+          <multiselect
+            v-model="selectedColeta"
+            :options="optionsColeta"
+            :multiple="true"
+            placeholder="Tipo de coleta"
+            label="valor"
+            name="tipo_coleta"
+            track-by="valor"
+          />
+        </div>
       </div>
 
       <div class="mb-3 w-100">
@@ -151,6 +169,196 @@
         />
       </div>
 
+      <div>
+        <div class="d-flex pb-2">
+          <Field
+            name="coberturaAns"
+            type="checkbox"
+            :value="true"
+            class="inputcheckbox"
+          />
+          <LabelFromYup
+            name="coberturaAns"
+            :schema="schema"
+            class="ps-2"
+          />
+        </div>
+        <div class="d-flex pb-2">
+          <Field
+            name="agendado"
+            type="checkbox"
+            :value="true"
+            class="inputcheckbox"
+          />
+          <LabelFromYup
+            name="agendado"
+            :schema="schema"
+            class="ps-2"
+          />
+        </div>
+      </div>
+
+      <div class="d-flex w-100 gap-3 my-2">
+        <div class="">
+          <label>
+            Tipo de exame
+          </label>
+          <div class="d-flex gap-4">
+            <div class="pe-3">
+              <div class="d-flex">
+                <Field
+                  name="sanguineo"
+                  type="checkbox"
+                  :value="true"
+                  class="inputcheckbox"
+                />
+                <LabelFromYup
+                  name="sanguineo"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="genetico"
+                  type="checkbox"
+                  :value="true"
+                  class="inputcheckbox"
+                />
+                <LabelFromYup
+                  name="genetico"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="imunologico"
+                  type="checkbox"
+                  :value="true"
+                  class="inputcheckbox"
+                />
+                <LabelFromYup
+                  name="imunologico"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="bioquimicos"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="bioquimicos"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+            </div>
+  
+            <div class="pe-3">
+              <div class="d-flex">
+                <Field
+                  name="hematologicos"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="hematologicos"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="microbiologicos"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="microbiologicos"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="citologicos"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="citologicos"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="toxicologicos"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="toxicologicos"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+            </div>
+  
+            <div class="pe-3">
+              <div class="d-flex">
+                <Field
+                  name="imagem"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="imagem"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="funcionais"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="funcionais"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="urinalise"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="urinalise"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="d-flex flex-column align-items-center mt-4">
         <button 
           class="btnVerde" 
@@ -169,6 +377,7 @@
 </template>
 
 <script setup>
+import coleta from '@/consts/coleta.js';
 import faixaEtaria from '@/consts/faixaEtaria.js';
 import { exame as schema } from '@/consts/formSchema';
 import { useUnidadeStore } from '@/store/unidade.store.js';
@@ -193,6 +402,11 @@ const alertStore = useAlertStore();
 const selectedFaixaEtaria = ref([])
 const optionsFaixaEtaria = computed(() => {
   return Object.values(faixaEtaria);
+});
+
+const selectedColeta = ref([])
+const optionsColeta = computed(() => {
+  return Object.values(coleta);
 });
 
 const selectedOtherNames = ref([])
@@ -234,6 +448,10 @@ const onSubmitUsuario = handleSubmit(async (values) => {
       'ageGroup': selectedFaixaEtaria.value.map( 
         item => item.valor
        ) || emFoco.value?.ageGroup,
+
+      'tipo_coleta': selectedColeta.value.map( 
+      item => item.valor
+      ) || emFoco.value?.tipo_coleta,
 
       'healthFacilityIds': selectedHealthFacilityIds.value.map( 
         item => item.id
@@ -285,6 +503,15 @@ watch(emFoco, (novoValor) => {
     selectedFaixaEtaria.value = novoValor.ageGroup.map((item) => {
       return (
         optionsFaixaEtaria.value.find((option) => option.valor === item) || {
+          nome: item,
+          valor: item,
+        }
+      );
+    });
+
+    selectedColeta.value = novoValor.tipo_coleta.map((item) => {
+      return (
+        optionsColeta.value.find((option) => option.valor === item) || {
           nome: item,
           valor: item,
         }
