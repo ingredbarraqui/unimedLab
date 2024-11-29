@@ -23,31 +23,33 @@ export const useUnidadeStore = defineStore( 'unidade', {
   }),
 
   actions: {
-    async buscarTudo(params = {}){
+    async buscarTudo(params = {}) {
       this.chamadasPendentes.lista = true;
       this.error = null;
-
-      try{
+    
+      try {
         const request = await this.requestS.get(
-          `${baseUrl}/health-facility`, {
-          ...params, 
-          page: params.page || this.paginacao.current_page || 1,
-          per_page: this.paginacao.per_page,
-        });
-
-        this.lista = request.healthFacilities.data
+          `${baseUrl}/health-facility`, 
+          {
+            ...params, 
+            page: params.page || this.paginacao.current_page || 1,
+            per_page: params.per_page || this.paginacao.per_page,
+          }
+        );
+    
+        this.lista = request.healthFacilities.data;
         this.paginacao.current_page = request.healthFacilities.current_page;
         this.paginacao.last_page = request.healthFacilities.last_page;
         this.paginacao.per_page = request.healthFacilities.per_page;
         this.paginacao.total = request.healthFacilities.total;
         this.paginacao.links = request.healthFacilities.links;
-      } catch (error){
-        this.error = error
+      } catch (error) {
+        this.error = error;
       }
-
-      this.chamadasPendentes.lista = false
+    
+      this.chamadasPendentes.lista = false;
     },
-
+    
     async mudarPagina(page) {
       this.chamadasPendentes.lista = true;
       this.erro = null;

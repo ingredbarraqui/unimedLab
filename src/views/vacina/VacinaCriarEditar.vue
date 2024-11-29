@@ -24,19 +24,20 @@
             name="name"
           />
         </div>
+      </div>
 
-        <div class="mb-3 w-100">
-          <LabelFromYup 
-            name="cautions" 
-            :schema="schema"
-          />
-          <Field
-            name="cautions"
-            placeholder="Cuidades"
-            type="text"
-            class="inputtext"
-          />
-        </div>
+      <div class="mb-3 w-100">
+        <LabelFromYup 
+          name="cautions" 
+          :schema="schema"
+        />
+        <Field
+          name="cautions"
+          placeholder="Cuidades"
+          as="textarea" 
+          class="inputtext"
+        />
+        <small>separe os cuidados com ";"</small>
       </div>
 
       <div class="d-flex gap-3">
@@ -247,7 +248,7 @@ async function iniciar() {
   if (props.vacinaId) {
    await vacinaStore.buscarItem(props.vacinaId);
   }
-  await unidadeStore.buscarTudo();
+  await unidadeStore.buscarTudo({ per_page: 1000 });
 }
 iniciar()
 
