@@ -187,45 +187,45 @@ export const exame = object()
     .label('Outros nomes'),
   healthFacilityIds: array()
     .label('Unidades de saúde'),
-  tipo_coleta: array()
+  collectionMethod: array()
     .label('Tipo de coleta'),
-  sanguineo: boolean()
+  sanguine: boolean()
     .label('Sanguíneo')
     .nullable(),
-  genetico: boolean()
+  genetic: boolean()
     .label('Genético')
     .nullable(),
-  imunologico: boolean()
+  immunological: boolean()
     .label('Imunológico')
     .nullable(),
-  bioquimicos: boolean()
+  biochemicals: boolean()
     .label('Bioquímicos')
     .nullable(),
-  hematologicos: boolean()
+  hematological: boolean()
     .label('Hematológicos')
     .nullable(),
-  microbiologicos: boolean()
+  microbiological: boolean()
     .label('Microbiológicos')
     .nullable(),
-  citologicos: boolean()
+  cytological: boolean()
     .label('Citológicos')
     .nullable(),
-  toxicologicos: boolean()
+  toxicological: boolean()
     .label('Toxicológicos')
     .nullable(),
-  imagem: boolean()
+  image: boolean()
     .label('Imagem')
     .nullable(),
-  funcionais: boolean()
+  functional: boolean()
     .label('Funcionais')
     .nullable(),
-  urinalise: boolean()
+  urinalysis: boolean()
     .label('Urinálise e Parasitologia')
     .nullable(),
-  coberturaAns: boolean()
+  coverageANS: boolean()
     .label('Exame possui cobertura ANS?')
     .nullable(),
-  agendado: boolean()
+  haveToSchedule: boolean()
     .label('Exame precisa ser agendado?')
     .nullable(),
 });

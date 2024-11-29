@@ -134,7 +134,7 @@
         </div>
         <div class="mb-3 w-100">
           <LabelFromYup 
-            name="tipo_coleta" 
+            name="collectionMethod" 
             :schema="schema"
             :required="true"
           />
@@ -144,7 +144,7 @@
             :multiple="true"
             placeholder="Tipo de coleta"
             label="valor"
-            name="tipo_coleta"
+            name="collectionMethod"
             track-by="valor"
           />
         </div>
@@ -172,26 +172,26 @@
       <div>
         <div class="d-flex pb-2">
           <Field
-            name="coberturaAns"
+            name="coverageANS"
             type="checkbox"
             :value="true"
             class="inputcheckbox"
           />
           <LabelFromYup
-            name="coberturaAns"
+            name="coverageANS"
             :schema="schema"
             class="ps-2"
           />
         </div>
         <div class="d-flex pb-2">
           <Field
-            name="agendado"
+            name="haveToSchedule"
             type="checkbox"
             :value="true"
             class="inputcheckbox"
           />
           <LabelFromYup
-            name="agendado"
+            name="haveToSchedule"
             :schema="schema"
             class="ps-2"
           />
@@ -207,107 +207,52 @@
             <div class="pe-3">
               <div class="d-flex">
                 <Field
-                  name="sanguineo"
+                  name="sanguine"
                   type="checkbox"
                   :value="true"
                   class="inputcheckbox"
                 />
                 <LabelFromYup
-                  name="sanguineo"
+                  name="sanguine"
                   :schema="schema"
                   class="ps-2"
                 />
               </div>
               <div class="d-flex">
                 <Field
-                  name="genetico"
+                  name="genetic"
                   type="checkbox"
                   :value="true"
                   class="inputcheckbox"
                 />
                 <LabelFromYup
-                  name="genetico"
+                  name="genetic"
                   :schema="schema"
                   class="ps-2"
                 />
               </div>
               <div class="d-flex">
                 <Field
-                  name="imunologico"
+                  name="immunological"
                   type="checkbox"
                   :value="true"
                   class="inputcheckbox"
                 />
                 <LabelFromYup
-                  name="imunologico"
+                  name="immunological"
                   :schema="schema"
                   class="ps-2"
                 />
               </div>
               <div class="d-flex">
                 <Field
-                  name="bioquimicos"
+                  name="biochemicals"
                   type="checkbox"
                   class="inputcheckbox"
                   :value="true"
                 />
                 <LabelFromYup
-                  name="bioquimicos"
-                  :schema="schema"
-                  class="ps-2"
-                />
-              </div>
-            </div>
-  
-            <div class="pe-3">
-              <div class="d-flex">
-                <Field
-                  name="hematologicos"
-                  type="checkbox"
-                  class="inputcheckbox"
-                  :value="true"
-                />
-                <LabelFromYup
-                  name="hematologicos"
-                  :schema="schema"
-                  class="ps-2"
-                />
-              </div>
-              <div class="d-flex">
-                <Field
-                  name="microbiologicos"
-                  type="checkbox"
-                  class="inputcheckbox"
-                  :value="true"
-                />
-                <LabelFromYup
-                  name="microbiologicos"
-                  :schema="schema"
-                  class="ps-2"
-                />
-              </div>
-              <div class="d-flex">
-                <Field
-                  name="citologicos"
-                  type="checkbox"
-                  class="inputcheckbox"
-                  :value="true"
-                />
-                <LabelFromYup
-                  name="citologicos"
-                  :schema="schema"
-                  class="ps-2"
-                />
-              </div>
-              <div class="d-flex">
-                <Field
-                  name="toxicologicos"
-                  type="checkbox"
-                  class="inputcheckbox"
-                  :value="true"
-                />
-                <LabelFromYup
-                  name="toxicologicos"
+                  name="biochemicals"
                   :schema="schema"
                   class="ps-2"
                 />
@@ -317,39 +262,94 @@
             <div class="pe-3">
               <div class="d-flex">
                 <Field
-                  name="imagem"
+                  name="hematological"
                   type="checkbox"
                   class="inputcheckbox"
                   :value="true"
                 />
                 <LabelFromYup
-                  name="imagem"
+                  name="hematological"
                   :schema="schema"
                   class="ps-2"
                 />
               </div>
               <div class="d-flex">
                 <Field
-                  name="funcionais"
+                  name="microbiological"
                   type="checkbox"
                   class="inputcheckbox"
                   :value="true"
                 />
                 <LabelFromYup
-                  name="funcionais"
+                  name="microbiological"
                   :schema="schema"
                   class="ps-2"
                 />
               </div>
               <div class="d-flex">
                 <Field
-                  name="urinalise"
+                  name="cytological"
                   type="checkbox"
                   class="inputcheckbox"
                   :value="true"
                 />
                 <LabelFromYup
-                  name="urinalise"
+                  name="cytological"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="toxicological"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="toxicological"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+            </div>
+  
+            <div class="pe-3">
+              <div class="d-flex">
+                <Field
+                  name="image"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="image"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="functional"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="functional"
+                  :schema="schema"
+                  class="ps-2"
+                />
+              </div>
+              <div class="d-flex">
+                <Field
+                  name="urinalysis"
+                  type="checkbox"
+                  class="inputcheckbox"
+                  :value="true"
+                />
+                <LabelFromYup
+                  name="urinalysis"
                   :schema="schema"
                   class="ps-2"
                 />
@@ -449,9 +449,9 @@ const onSubmitUsuario = handleSubmit(async (values) => {
         item => item.valor
        ) || emFoco.value?.ageGroup,
 
-      'tipo_coleta': selectedColeta.value.map( 
+      'collectionMethod': selectedColeta.value.map( 
       item => item.valor
-      ) || emFoco.value?.tipo_coleta,
+      ) || emFoco.value?.collectionMethod,
 
       'healthFacilityIds': selectedHealthFacilityIds.value.map( 
         item => item.id
@@ -509,7 +509,7 @@ watch(emFoco, (novoValor) => {
       );
     });
 
-    selectedColeta.value = novoValor.tipo_coleta.map((item) => {
+    selectedColeta.value = novoValor.collectionMethod.map((item) => {
       return (
         optionsColeta.value.find((option) => option.valor === item) || {
           nome: item,
