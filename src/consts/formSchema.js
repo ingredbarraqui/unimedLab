@@ -230,6 +230,27 @@ export const exame = object()
     .nullable(),
 });
 
+export const documentos = object()
+.shape({
+  name: string()
+  .label('Nome')
+  .required('Obrigatório')
+  .oneOf(
+    [
+      'Swab Bucal', 
+      '1º semestre relatório de Transparência',
+      '2º semestre relatório de Transparência',
+      'Termo de consentimento'
+    ],
+    'O valor de "Nome" deve ser um dos seguintes: Swab Bucal, 1º semestre relatório de Transparência, 2º semestre relatório de Transparência, Termo de consentimento.'
+  ),
+  type: string()
+    .label('Tipo'),
+  title: string()
+    .label('Titulo')
+    .required('Obrigatório'),
+})
+
 export const video = object()
 .shape({
   link: string()

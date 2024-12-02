@@ -3,6 +3,8 @@ import BannerLista from "@/views/banner/BannerLista.vue";
 
 import CategoriaCriarEditar from "@/views/categoria/CategoriaCriarEditar.vue";
 import CategoriaLista from "@/views/categoria/CategoriaLista.vue";
+import DocumentosEditar from "@/views/documentos/DocumentosEditar.vue";
+import DocumentosLista from "@/views/documentos/DocumentosLista.vue";
 import ExamesCriarEditar from "@/views/exames/ExamesCriarEditar.vue";
 import ExamesLista from "@/views/exames/ExamesLista.vue";
 import HomePage from "@/views/HomePage.vue";
@@ -247,6 +249,29 @@ const router = createRouter({
           props: ({ params }) => ({
             ...params,
             ...{ unidadeId: Number.parseInt(params.unidadeId) || undefined },
+          }),
+        },
+      ],
+    },
+    {
+      path: '/documentos',
+      component: HomePage,
+      children: [
+        {
+          path: '',
+          name: 'documentos',
+          component: DocumentosLista,
+        },
+        {
+          path: ':documentosId',
+          name: 'Editar documento',
+          component: DocumentosEditar,
+          meta: {
+            título: 'Editar documento',
+          },
+          props: ({ params }) => ({
+            ...params,
+            ...{ documentosId: Number.parseInt(params.documentosId) || undefined },
           }),
         },
       ],

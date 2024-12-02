@@ -52,6 +52,11 @@
               <font-awesome-icon icon="fa-solid fa-video" />Vídeo
             </router-link>
           </CNavItem>
+          <CNavItem href="/documentos">
+            <router-link to="/documentos">
+              <font-awesome-icon icon="fa-solid fa-folder-open" />Documentos
+            </router-link>
+          </CNavItem>
         </div>
         <CNavItem 
           class="d-flex align-items-center mb-2"  
