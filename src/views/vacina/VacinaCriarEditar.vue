@@ -40,6 +40,20 @@
         <small>separe os cuidados com ";"</small>
       </div>
 
+      <div class="mb-3 w-100">
+        <LabelFromYup 
+          name="indications" 
+          :schema="schema"
+        />
+        <Field
+          name="indications"
+          placeholder="Indicações"
+          as="textarea" 
+          class="inputtext"
+        />
+        <small>separe as Indicações com ";"</small>
+      </div>
+
       <div class="d-flex gap-3">
         <div class="mb-3 w-100">
           <LabelFromYup 
