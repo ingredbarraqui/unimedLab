@@ -336,3 +336,17 @@ td{
   padding-bottom: 15px;
   color: var(--roxo);
 }
+
+.ql-editor {
+  height: 250px;
+  background: var(--cinzaClaro);
+  border-radius: 0px 0px 8px 8px;
+}
+
+.ql-container.ql-snow {
+  border: none !important;
+}
+
+.ql-toolbar.ql-snow {
+  border-radius: 8px 8px 0 0;
+}

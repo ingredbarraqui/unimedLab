@@ -3,6 +3,7 @@ import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { QuillEditor } from '@vueup/vue-quill';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
@@ -11,6 +12,7 @@ import router from './router';
 
 import LabelFromYup from '@/components/LabelFromYup.vue';
 
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import '@coreui/coreui/dist/css/coreui.min.css';
 import 'vue-multiselect/dist/vue-multiselect.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -45,6 +47,7 @@ const requestSPlugin = ({ store }) => {
 
 app.component('LabelFromYup', LabelFromYup);
 app.component('font-awesome-icon', FontAwesomeIcon);
+app.component('QuillEditor', QuillEditor);
 app.use(pinia);
 pinia.use(requestSPlugin);
 

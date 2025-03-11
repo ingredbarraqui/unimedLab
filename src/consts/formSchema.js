@@ -70,9 +70,9 @@ export const noticia = object()
   image: string()
     .label('Imagem')
     .required('Obrigatório'),
-  content: string()
-    .label('Conteúdo')
-    .required('Obrigatório'),
+  // content: string()
+  //   .label('Conteúdo')
+  //   .required('Obrigatório'),
   newLetterCategoryId: mixed()
     .label('Categoria')
     .required('Obrigatório'),

@@ -100,21 +100,14 @@
         </div>
       </div>
 
-      <div class="mb-3 w-100">
-        <LabelFromYup 
-          name="content" 
-          :schema="schema"
-          :required="true"
-        />
-        <Field
-          v-focus
-          name="content"
-          placeholder="Conteúdo" 
-          as="textarea" 
-          class="inputtext"
-        />
-        <ErrorMessage 
-          class="error-msg" 
+      <div>
+        <label>Conteúdo <span class="required">*</span></label>
+        <QuillEditor
+          id="content"
+          v-model:content="content"
+          content-type="html"
+          theme="snow"
+          class="mb-3"
           name="content"
         />
       </div>
@@ -164,6 +157,7 @@ const {
   initialValues: emFoco.value,
 });
 
+const content = ref('');
 const image = ref('');
 const props = defineProps({
   noticiaId: {
@@ -191,6 +185,7 @@ const onSubmitUsuario = handleSubmit(async (values) => {
 
     const payload = {
       ...values,
+      content: content.value !== null ? content.value : '',
       image: image.value || emFoco.value?.image
     };
 
@@ -219,6 +214,7 @@ iniciar()
 watch(emFoco, (novoValor) => {
   if (novoValor) {
     resetForm({ values: novoValor });
+    content.value = novoValor.content || '';
   }
 }, { immediate: true });
 </script>

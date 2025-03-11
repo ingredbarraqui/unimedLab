@@ -16,6 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@vue/compiler-sfc": "^3.5.12",
+    "@vueup/vue-quill": "^1.2.0",
     "bootstrap": "^5.3.3",
     "core-js": "^3.8.3",
     "maska": "^3.0.3",

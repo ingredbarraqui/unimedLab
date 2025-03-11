@@ -114,7 +114,7 @@
             >
               <td class="text">{{ item.category }}</td>
               <td class="text">{{ item.title }}</td>
-              <td class="text">{{ item.content }}</td>
+              <td class="text" v-html="item.content" />
               <td class="text">{{ dateToField(item.created_at) }}</td>
               <div class="d-flex gap-2">
                 <td class="tdBtnAcao">
