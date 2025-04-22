@@ -240,9 +240,10 @@ export const documentos = object()
       'Swab Bucal', 
       '1º semestre relatório de Transparência',
       '2º semestre relatório de Transparência',
-      'Termo de consentimento'
+      'Termo de consentimento',
+      'Regulamento cartão v2'
     ],
-    'O valor de "Nome" deve ser um dos seguintes: Swab Bucal, 1º semestre relatório de Transparência, 2º semestre relatório de Transparência, Termo de consentimento.'
+    'O valor de "Nome" deve ser um dos seguintes: Swab Bucal, 1º semestre relatório de Transparência, 2º semestre relatório de Transparência, Termo de consentimento, Regulamento cartão v2.'
   ),
   type: string()
     .label('Tipo'),
